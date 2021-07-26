@@ -35,7 +35,22 @@ class AlunoController {
           });
 
     //Insira a função que insere um aluno (método POST)
+        
+atualizaAluno =(req, res) => {
+    const atualiza = req.params.nome
+    const {nome, turma, email} = req.body
+    const aluno = new Aluno (nome, turma, email)
 
+    this.conecta
+    .insereAluno (atualiza, aluno)
+    .then(()=>{
+        res.send({message:"Alterado Aluno"})
+    })
+    .catch((err)=>{
+        throw (err)
+    })
+    
+}
     //Insira a função que atualiza um aluno (método PUT)
 
     //Insira a função que exclui um aluno (método GET)
