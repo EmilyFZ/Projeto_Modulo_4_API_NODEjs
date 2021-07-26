@@ -7,9 +7,32 @@ class AlunoController {
     constructor(conecta){
         this.conecta = conecta;
     }
-    //Insira a função que exibe um aluno (método GET)
+    exibirUmAluno = (req, res) => {
+
+    
+    const aluno = req.params.nome;
+
+    this.dbConn
+      .getOneUser(nome)
+      .then((aluno) => {
+        res.send(aluno);
+      })
+      .catch((err) => {
+        throw err;
+      });
+    }
 
     //Insira a função que exibe todos alunos (método GET)
+
+    exibirTodosAlunos = (req, res) => {
+        this.dbConn
+          .visualizaTodosAlunos()
+          .then((nome) => {
+            res.send(nome);
+          })
+          .catch((err) => {
+            throw err;
+          });
 
     //Insira a função que insere um aluno (método POST)
 

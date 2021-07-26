@@ -9,7 +9,29 @@ class ProfessorController {
     }
     //Insira a função que exibe um professor (método GET)
 
+    exibirUmProf = (req, res) => {
+         const prof = req.params.nome;
+    
+        this.dbConn
+          .getOneUser(nome)
+          .then((prof) => {
+            res.send(prof);
+          })
+          .catch((err) => {
+            throw err;
+          });
+        }
+
     //Insira a função que exibe todos os professores (método GET)
+    exibirTodosProfs = (req, res) => {
+        this.dbConn
+          .visualizaTodosProfs()
+          .then((nome) => {
+            res.send(nome);
+          })
+          .catch((err) => {
+            throw err;
+          });
 
     //Insira a função que insere um professor (método POST)
 
