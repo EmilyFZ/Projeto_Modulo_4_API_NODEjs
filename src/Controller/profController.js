@@ -34,6 +34,23 @@ class ProfessorController {
           });
 
     //Insira a função que insere um professor (método POST)
+                      insereProf = (req, res) => {
+        const { nome, disciplina, email  } = req.body;
+        const professor = new Professor(nome, disciplina, email);
+        this.conecta
+        .insereProf(professor)
+        .then((resolve) => {
+            res.send({
+                message: "Professor Salvo no banco",
+                data: resolve,
+            });
+        })
+        .catch((err) => {
+            throw err;
+    
+        });
+    };
+
 
     //Insira a função que atualiza um professor (método PUT)
 
